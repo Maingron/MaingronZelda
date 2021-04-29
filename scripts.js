@@ -1,24 +1,26 @@
-var pData = {};
-var objects = {};
-var data = {};
-data.temp = {};
-pData.runner = {};
+var pData = { // pData means permanent Data like saves
+    "runner": {},
+    "leveldata": {}
+};
 
-pData.leveldata = {};
+var objects = {};
+var data = {
+    "temp": {}
+};
 
 function reset() {
     localStorage.clear();
     location.reload();
 }
 
-if (loadState("initinit") == 1) {
+if (loadState("initinit")) {
     pData.leveldata = JSON.parse(loadState("pData.leveldata"));
 
 
 } else {
-
-    pData.leveldata.temple0 = {};
-    pData.leveldata.temple0.keys = [];
+    pData.leveldata.temple0 = {
+        "keys": []
+    };
     for (data.temp.iOfIninLdata1 = 0; data.temp.iOfIninLdata1 < 20; data.temp.iOfIninLdata1++) { //20 means maximum of 20 different keys per level
         pData.leveldata.temple0.keys[data.temp.iOfIninLdata1] = 0;
     }
@@ -37,8 +39,7 @@ if (loadState("initinit") == 1) {
 
 
 if (document.getElementById("developer-true")) {
-    pData.runner.developer = 1;
-
+    pData.runner.developer = !0;
 }
 
 if (loadState("cLevel")) {
@@ -59,67 +60,61 @@ function init() {
         objects.field.innerHTML = "";
         objects.field.outerHTML = "";
     }
-    objects = {};
-    data = {};
-    data.temp = {};
-    objects.gameframe = document.getElementsByClassName("gameframe")[0];
+    objects = {
+        "gameframe": document.getElementsByClassName("gameframe")[0]
+    };
+
+    data = {
+        "ticktime": 100, //Production Value 120
+        "temp": {
+        },
+        "field": {
+            "height": 20,
+            "width": 20,
+            "oneHeight": 10,
+            "oneWidth": 10
+        },
+        "keypress": {
+            "up": !1,
+            "down": !1,
+            "left": !1,
+            "right": !1,
+            "interact": !1
+        },
+        "runner": {
+            "cango": {
+                "up": !1,
+                "down": !1,
+                "left": !1,
+                "right": !1
+            },
+            "position": {
+                "top": 0,
+                "left": 0
+            },
+            "iframe": 0,
+            "oldposition": {},
+            "walkposition": {},
+            "startposition": {},
+            "oldotherposition": {}
+        },
+        "trigger": [],
+        "walls": [],
+        "enemys": [],
+        "forenemys": [],
+        "floor": [],
+        "allthings": [],
+        "idcount": 1
+    };
 
 
-    data.field = {};
-    data.field.height = 20;
-    data.field.width = 20;
-    data.field.oneHeight = 10;
-    data.field.oneWidth = 10;
-
-    data.keypress = {};
-    data.keypress.up = false;
-    data.keypress.down = false;
-    data.keypress.left = false;
-    data.keypress.right = false;
-    data.keypress.interact = false;
-
-    data.runner = {};
-    data.runner.cango = {};
-    data.runner.cango.up = false;
-    data.runner.cango.down = false;
-    data.runner.cango.left = false;
-    data.runner.cango.right = false;
-
-    data.runner.position = {};
-    data.runner.position.top = 0;
-    data.runner.position.left = 0;
-
-    data.ticktime = 100; //Production Value 120
-
-    data.trigger = [];
-
-    data.walls = [];
-    data.enemys = [];
-    data.runner.iframe = 0;
-    data.runner.oldposition = {};
-    data.runner.walkposition = {};
-
-    data.runner.startposition = {};
-    data.runner.oldotherposition = {};
-
-    data.forenemys = [];
-    data.floor = [];
-
-    data.allthings = [];
-
-    data.idcount = 1;
-
-    if (pData.runner.developer == 1) {
+    if (pData.runner.developer) {
         objects.positionboard = document.getElementsByClassName("positionboard")[0];
     }
 
 
-
-
     summonElement("field", objects.gameframe, "", "");
     objects.field = document.getElementsByClassName("field")[0];
-
-
 }
 
 function init2() {
@@ -166,8 +161,6 @@ function init2() {
                     }
                 }
 
-
-
                 data.enemys[data.iOfInit2] = data.temp.setEnemys[data.iOfInit2][0] + "," + data.temp.setEnemys[data.iOfInit2][1] + "," + data.temp.setEnemys[data.iOfInit2][2] + "," + data.temp.setEnemys[data.iOfInit2][3] + "," + data.temp.setEnemys[data.iOfInit2][4] + "," + data.temp.setEnemys[data.iOfInit2][5] + "," + data.temp.setEnemys[data.iOfInit2][6];
 
 
@@ -183,14 +176,6 @@ function init2() {
     for (data.temp.iOfInit2 = 0; data.enemys.length > data.temp.iOfInit2; data.temp.iOfInit2++) {
         data.enemys[data.temp.iOfInit2] = data.enemys[data.temp.iOfInit2].split(",");
     }
-
-
-
-
-
-
-
-
 
     objects.runner = document.getElementsByClassName("runner")[0];
 
@@ -209,7 +194,6 @@ function init2() {
     if (!data.runner.startposition.left) {
         data.runner.startposition.left = data.runner.position.left;
     }
-
 
 
     if (pData.runner.developer) {
@@ -261,21 +245,12 @@ function init2() {
 
     cleanupTiles();
     randomizeGraphics();
-
-
-
-
-
-
 }
 
 loadLevel();
 
 function makeKeygroup(number, which) {
-console.log("Missing Feature:makeKeygroup()")
-
-
-
+    console.log("Missing Feature:makeKeygroup()")
 }
 
 function destroyElement(x, y, type) {
@@ -283,7 +258,6 @@ function destroyElement(x, y, type) {
         if (data.allthings[i][0] == "trigger") {
             console.log(data.allthings[i]);
         }
-
 
 
         if (data.allthings[i][1] == x * data.field.oneWidth) {
@@ -296,36 +270,10 @@ function destroyElement(x, y, type) {
 
                     data.allthings.splice(i, 1);
                     console.log("key");
-
-
                     return;
-
                 } else {
                     continue;
                 }
-
-
-
-
-                console.log(data.allthings[i]);
-                document.getElementById(data.allthings[i][3]).outerHTML = "";
-
-                for (var j = 0; j < data.walls.length; j++) {
-                    if (data.walls[j][1] == x) {
-                        if (data.walls[j][2] == y) {
-                            data.walls.splice(j, 1);
-                        }
-                    }
-                }
-
-                console.log(data.allthings[i]);
-
-
-                data.allthings.splice(i, 1);
-                console.log(i);
-
-
-
             }
         }
     }
@@ -345,8 +293,8 @@ function summonElement(classname, childof, x = 0, y = 0, triggerdo) {
         data.temp.newElement.innerHTML = triggerdo;
     } else {
         data.temp.newElement = document.createElement("div");
-
     }
+
     data.temp.newElement.classList.add(classname);
     if (classname == "wall") {
         data.temp.newElement.classList.add(data.temp.setWalls[data.iOfInit2][0]);
@@ -360,7 +308,6 @@ function summonElement(classname, childof, x = 0, y = 0, triggerdo) {
     // data.temp.newElement.style.top = y;
 
     if (classname != "field") {
-
         data.temp.newElement.style.top = y + "px";
         data.temp.newElement.style.left = x + "px";
     }
@@ -375,13 +322,10 @@ function summonElement(classname, childof, x = 0, y = 0, triggerdo) {
 
     if (triggerdo) {
         data.temp.newElement.title = triggerdo;
-
     }
 
     // if(classname.indexOf("floor")>=0 || classname.indexOf("type")>=0) {
-
     //     data.temp.newElement.id = data.idcount;
-
     //     data.floor[data.floor.length] = [classname,x,y,data.idcount];
     // }
 
@@ -389,52 +333,47 @@ function summonElement(classname, childof, x = 0, y = 0, triggerdo) {
         data.temp.newElement.id = data.idcount;
         data.allthings[data.allthings.length] = [classname, x, y, data.idcount];
 
-        if (pData.runner.developer) {
-            if (classname == "trigger" || classname == "oldotherposition" || classname == "positionboard") {
-
-            }
-        }
+        // if (pData.runner.developer) {
+        //     if (classname == "trigger" || classname == "oldotherposition" || classname == "positionboard") {
+        //     }
+        // }
     }
 }
 
-function summonElementKey(classname, levelnr, keynr, x, y) {
+function summonElementKey(classname, levelnr, keynr, x, y) { // Spawn a key
     if (pData.leveldata[levelnr].keys[keynr] != 1) {
         summonElement(classname, "", x, y);
         summonElement("trigger", "", x, y, "keycollect(" + levelnr + "," + keynr + ")");
-
     }
-
-
 }
 
 window.addEventListener("keydown", function (event) {
-
     if (event.key == "w") {
-        data.keypress.up = true;
+        data.keypress.up = !0;
     } else if (event.key == "s") {
-        data.keypress.down = true;
+        data.keypress.down = !0;
     } else if (event.key == "ArrowUp") {
-        data.keypress.up = true;
+        data.keypress.up = !0;
     } else if (event.key == "ArrowDown") {
-        data.keypress.down = true;
+        data.keypress.down = !0;
     }
 
     if (event.key == "e") {
-        data.keypress.interact = true;
+        data.keypress.interact = !0;
     }
 
     if (event.key == "a") {
-        data.keypress.left = true;
+        data.keypress.left = !0;
     } else if (event.key == "d") {
-        data.keypress.right = true;
+        data.keypress.right = !0;
     } else if (event.key == "ArrowLeft") {
-        data.keypress.left = true;
+        data.keypress.left = !0;
     } else if (event.key == "ArrowRight") {
-        data.keypress.right = true;
+        data.keypress.right = !0;
     }
 
     if (event.key == "Escape") {
-        data.runner.inmenu = true;
+        data.runner.inmenu = !0;
         data.runner.walkposition = data.runner.position;
         loadLevel("004-3");
     }
@@ -456,46 +395,41 @@ window.addEventListener("keydown", function (event) {
             data.enemys2 = undefined;
         }
     }
-
-
-
-
 });
-
 
 
 
 window.addEventListener("keyup", function (event) {
     if (event.key == "w") {
-        data.keypress.up = false;
+        data.keypress.up = !1;
     }
 
     if (event.key == "s") {
-        data.keypress.down = false;
+        data.keypress.down = !1;
     }
 
     if (event.key == "a") {
-        data.keypress.left = false;
+        data.keypress.left = !1;
 
     }
     if (event.key == "d") {
-        data.keypress.right = false;
+        data.keypress.right = !1;
     }
 
     if (event.key == "ArrowUp") {
-        data.keypress.up = false;
+        data.keypress.up = !1;
     }
 
     if (event.key == "ArrowDown") {
-        data.keypress.down = false;
+        data.keypress.down = !1;
     }
 
     if (event.key == "ArrowLeft") {
-        data.keypress.left = false;
+        data.keypress.left = !1;
     }
 
     if (event.key == "ArrowRight") {
-        data.keypress.right = false;
+        data.keypress.right = !1;
     }
 });
 
@@ -507,7 +441,6 @@ window.setInterval(function () {
 window.setInterval(function () {
     doTick2();
 }, data.ticktime * 3);
-
 
 
 function doTick() {
@@ -603,25 +536,17 @@ function doTick() {
     }
 
 
-
-
     doMove();
 
     doInMenuTick();
 
 
-
-
-
-
-    data.runner.cango.up = true;
-    data.runner.cango.down = true;
-    data.runner.cango.left = true;
-    data.runner.cango.right = true;
-
-
-
-
+    data.runner.cango = {
+        "up": !0,
+        "down": !0,
+        "left": !0,
+        "right": !0
+    }
 
     doEnemyTick();
 
@@ -635,23 +560,19 @@ function doTick() {
         }
     }
 
-    data.keypress.interact = false;
-
+    data.keypress.interact = !1;
 
 
     if (data.runner.oldposition.left && data.runner.oldposition.top) {
 
-
         if (data.runner.position.left != data.runner.oldposition.left) {
             data.runner.oldotherposition.left = +data.runner.oldposition.left;
             data.runner.oldotherposition.top = +data.runner.oldposition.top;
-
         }
 
         if (data.runner.position.top != data.runner.oldposition.top) {
             data.runner.oldotherposition.top = +data.runner.oldposition.top;
             data.runner.oldotherposition.left = +data.runner.oldposition.left;
-
         }
 
         if (pData.runner.developer) {
@@ -661,53 +582,46 @@ function doTick() {
             }
         }
     }
-
-
 }
 
 function doTick2() {
     data.visibleTilesY = window.innerHeight / (10 * 9) / 2 + 3; // CSS Tile height x Zoom level + Preprocessing
     data.visibleTilesX = window.innerWidth / (10 * 9) / 2 + 3; // CSS Tile height x Zoom level + Preprocessing
 
-    for (var iOfHidefar = 0; data.allthings.length > iOfHidefar; iOfHidefar++) {
-        if (data.allthings[iOfHidefar][2] / data.field.oneHeight < data.runner.position.top - data.visibleTilesY) {
-            document.getElementById(data.allthings[iOfHidefar][3]).style.display = "none";
-        } else if (data.allthings[iOfHidefar][2] / data.field.oneHeight > data.runner.position.top + data.visibleTilesY) {
-            document.getElementById(data.allthings[iOfHidefar][3]).style.display = "none";
-        } else if (data.allthings[iOfHidefar][1] / data.field.oneWidth < data.runner.position.left - data.visibleTilesX) {
-            document.getElementById(data.allthings[iOfHidefar][3]).style.display = "none";
-        } else if (data.allthings[iOfHidefar][1] / data.field.oneWidth > data.runner.position.left + data.visibleTilesX) {
-            document.getElementById(data.allthings[iOfHidefar][3]).style.display = "none";
-
+    for (var i = 0; data.allthings.length > i; i++) {
+        if (data.allthings[i][2] / data.field.oneHeight < data.runner.position.top - data.visibleTilesY) {
+            document.getElementById(data.allthings[i][3]).style.display = "none";
+        } else if (data.allthings[i][2] / data.field.oneHeight > data.runner.position.top + data.visibleTilesY) {
+            document.getElementById(data.allthings[i][3]).style.display = "none";
+        } else if (data.allthings[i][1] / data.field.oneWidth < data.runner.position.left - data.visibleTilesX) {
+            document.getElementById(data.allthings[i][3]).style.display = "none";
+        } else if (data.allthings[i][1] / data.field.oneWidth > data.runner.position.left + data.visibleTilesX) {
+            document.getElementById(data.allthings[i][3]).style.display = "none";
         } else {
-            document.getElementById(data.allthings[iOfHidefar][3]).style.display = "inline";
+            document.getElementById(data.allthings[i][3]).style.display = "inline";
         }
     }
 }
 
 
-
 function doMove() {
 
     if (data.runner.position.top <= 0) {
-        data.runner.cango.up = false;
+        data.runner.cango.up = !1;
     } else if (data.runner.position.top >= data.field.height - 1) {
-        data.runner.cango.down = false;
+        data.runner.cango.down = !1;
     }
 
     if (data.runner.position.left <= 0) {
-        data.runner.cango.left = false;
+        data.runner.cango.left = !1;
     } else if (data.runner.position.left >= data.field.width - 1) {
-        data.runner.cango.right = false;
+        data.runner.cango.right = !1;
     }
-
-
 
 
     if (data.keypress.up && data.runner.cango.up) {
 
         data.runner.position.top--;
-
 
         setTimeout(function () {
             data.runner.position.anitop = data.runner.position.top * data.field.oneHeight + data.field.oneHeight - data.field.oneHeight / 4;
@@ -741,15 +655,9 @@ function doMove() {
         }, data.ticktime);
 
 
-
-
-
     } else if (data.keypress.down && data.runner.cango.down) {
 
-
-
         data.runner.position.top++;
-
 
         setTimeout(function () {
             data.runner.position.anitop = data.runner.position.top * data.field.oneHeight - data.field.oneHeight + data.field.oneHeight / 4;
@@ -785,7 +693,7 @@ function doMove() {
             objects.field.style.top = objects.gameframe.offsetHeight / 2 - data.runner.position.anitop - data.field.oneHeight * .5 + "px";
         }, data.ticktime);
     } else {
-        setTimeout(function () { //Update Playerposition occasionally (up-down)
+        setTimeout(function () { // Update Playerposition occasionally (up-down)
 
             data.runner.position.anitop = +data.runner.position.top * data.field.oneHeight;
 
@@ -793,17 +701,13 @@ function doMove() {
 
             objects.field.style.top = objects.gameframe.offsetHeight / 2 - data.runner.position.anitop - data.field.oneHeight * .5 + "px";
 
-
         }, data.ticktime / 2);
-
     }
-
 
 
     if (data.keypress.left && data.runner.cango.left) {
 
         data.runner.position.left--;
-
 
         setTimeout(function () {
             data.runner.position.anileft = data.runner.position.left * data.field.oneWidth + data.field.oneWidth - data.field.oneWidth / 4;
@@ -836,11 +740,6 @@ function doMove() {
             objects.runner.style.left = data.runner.position.anileft + "px";
             objects.field.style.left = objects.gameframe.offsetWidth / 2 - data.runner.position.anileft - data.field.oneWidth * .5 + "px";
         }, data.ticktime);
-
-
-
-
-
 
 
 
@@ -880,25 +779,18 @@ function doMove() {
     } else {
 
 
-        setTimeout(function () { //Update Playerposition occasionally (left-right)
+        setTimeout(function () { // Update Playerposition occasionally (left-right)
             data.runner.position.anileft = data.runner.position.left * data.field.oneWidth;
             objects.runner.style.left = data.runner.position.anileft + "px";
             objects.field.style.left = objects.gameframe.offsetWidth / 2 - data.runner.position.anileft - data.field.oneWidth * .5 + "px";
 
         }, data.ticktime / 2);
-
-
-
     }
 
     setTimeout(function () {
         objects.runner.style.top = data.runner.position.anitop + "px";
         objects.runner.style.left = data.runner.position.anileft + "px";
     }, data.ticktime);
-
-
-
-
 }
 
 function doEnemyTick() {
@@ -920,7 +812,6 @@ function doEnemyTick() {
 
                 data.runner.position.top = data.runner.oldposition.top;
                 data.runner.position.left = data.runner.oldposition.left;
-
             }
 
         } else if (data.enemys[data.temp.iOfEnemyTick][0] == "slicer") {
@@ -1079,12 +970,9 @@ function generateGui() {
         objects.hearts = document.getElementsByClassName("hearts")[0];
     }
     returnHearts()
-
-
 }
 
 function returnHearts() {
-
     if (!objects.hearts) {
         objects.hearts = document.getElementsByClassName("hearts")[0];
     }
@@ -1101,8 +989,6 @@ function returnHearts() {
     for (data.temp.iOfGui = 0; data.temp.hearts > data.temp.iOfGui; data.temp.iOfGui++) {
         summonElement("aHeart", objects.hearts, 0, 0);
     }
-
-
 }
 
 generateGui();
@@ -1123,7 +1009,6 @@ function doHurt(count) {
 }
 
 function loadOptions2() {
-
     if (loadState("colormode") == "1") {
         document.body.style.filter = "grayscale(1) brightness(1)";
     } else {
@@ -1135,7 +1020,7 @@ loadOptions2();
 
 function doInMenuTick() {
 
-    if (data.runner.inmenu == true) {
+    if (data.runner.inmenu == !0) {
         data.temp.menuGoBack = 0;
         data.runner.cango.down = 0;
         data.runner.cango.up = 0;
@@ -1145,7 +1030,7 @@ function doInMenuTick() {
             data.runner.cango.right = 1;
         } else if (data.runner.position.left == 4) {
             setTimeout(function () {
-                if (data.runner.inmenu == 1) {
+                if (data.runner.inmenu) {
 
                     data.runner.position.left = 3;
                     data.runner.cango.right = 0;
@@ -1165,11 +1050,10 @@ function doInMenuTick() {
         }
         if (data.runner.iframe <= 0) {
 
-            if (data.keypress.down == 1) {
+            if (data.keypress.down) {
                 data.menuitem++;
                 data.runner.iframe = 50;
-
-            } else if (data.keypress.up == 1 && data.menuitem > 0) {
+            } else if (data.keypress.up && data.menuitem > 0) {
                 data.menuitem--;
                 data.runner.iframe = 50;
             }
@@ -1195,7 +1079,7 @@ function doInMenuTick() {
             }
 
         } else if (pData.level == "004-2") {
-            if (data.temp.menuGoBack == 1) {
+            if (data.temp.menuGoBack) {
                 loadLevel("004");
             }
 
@@ -1213,7 +1097,6 @@ function doInMenuTick() {
             data.runner.oldposition.left = data.runner.walkposition.left;
             data.runner.position.top = data.runner.oldposition.top;
             data.runner.position.left = data.runner.oldposition.left;
-
         }
     }
 }
@@ -1221,21 +1104,19 @@ function doInMenuTick() {
 
 
 if (document.getElementById("developer-true")) {
-    pData.runner.developer = true;
+    pData.runner.developer = !0;
     summonElement("positionboard", document.body, 0, 0);
     objects.positionboard = document.getElementsByClassName("positionboard")[0];
-
 }
 
 
 function interactWith(which) {
-    if (data.keypress.interact == true) {
+    if (data.keypress.interact == !0) {
         window.alert("Interacting with: " + which);
-
     }
 }
 
-function tp(x, y) {
+function tp(x, y) { // Teleport
     data.runner.position.top = y;
     data.runner.position.left = x;
 
@@ -1244,8 +1125,6 @@ function tp(x, y) {
 
     objects.field.style.top = objects.gameframe.offsetHeight / 2 - data.runner.position.top * data.field.oneHeight - data.field.oneHeight * .5 + "px";
     objects.field.style.left = objects.gameframe.offsetWidth / 2 - data.runner.position.left * data.field.oneWidth - data.field.oneWidth * .5 + "px";
-
-
 }
 
 
@@ -1289,7 +1168,6 @@ function randomizeGraphics() {
         } else if (data.temp.randomnumber1 == 3) {
             which[data.temp.iOfRandom1].style.transform = "rotate(-90deg)";
         }
-
     }
 }
 

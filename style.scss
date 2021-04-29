@@ -21,16 +21,12 @@ body {
     font-family: "Arial", "Calibri", sans-serif;
     line-height: 1;
     margin: 0;
-    padding:0;   
+    padding:0;
     animation-timing-function: step-end;
     animation-iteration-count: infinite;
     animation-duration: 1s;
     background-repeat:no-repeat;
-    
-
 }
-
-
 
 p.textbox {
     font-size: 6px;
@@ -38,16 +34,7 @@ p.textbox {
     width: auto;
     background: transparent;
     line-height: 10px;
-
 }
-
-.gameframe.loadframe {
-    transform: scale(1);
-    zoom: 0;
-    transition: 0s;
-
-}
-
 
 .gameframe {
     padding: 0;
@@ -57,9 +44,12 @@ p.textbox {
     overflow: hidden;
     transform: scale(9);
     transition: .1s linear;
-    
 
-
+    &.loadframe {
+        transform: scale(1);
+        zoom: 0;
+        transition: 0s;
+    }
 }
 
 
@@ -86,7 +76,6 @@ p.textbox {
     position: absolute;
     background: fuchsia;
     display: inline-block;
-
     height: $oneheight;
     width: $onewidth;
     background-size: 100% 100%;
@@ -94,173 +83,156 @@ p.textbox {
     &.black {
         background: #000;
     }
-
-
 }
 
-.type1-1 {
-    background-position: -30px -70px;
-}
+.type {
+    &1-1 {
+        background-position: -30px -70px;
+    }
+    &1-2 {
+        background-position: -40px -70px;
+    }
+    &1-3 {
+        background-position: -50px -70px;
+    }
+    &1-4 {
+        background-position: -50px -80px;
+    }
+    &1-5 {
+        background-position: -50px -90px;
+    }
+    &1-6 {
+        background-position: -40px -90px;
+    }
+    &1-7 {
+        background-position: -30px -90px;
+    }
+    &1-8 {
+        background-position: -30px -80px;
+    }
 
-.type1-2 {
-    background-position: -40px -70px;
-}
+    &2-1 {
+        background-position: -60px -30px;
+    }
+    &2-2 {
+        background-position: -70px -30px;
+    }
+    &2-3 {
+        background-position: -80px -30px;
+    }
+    &2-4 {
+        background-position: -80px -40px;
+    }
+    &2-5 {
+        background-position: -80px -50px;
+    }
+    &2-6 {
+        background-position: -70px -50px;
+    }
+    &2-7 {
+        background-position: -60px -50px;
+    }
+    &2-8 {
+        background-position: -60px -40px;
+    }
+    &2-9 {
+        background-position: -90px -40px;
+    }
+    &2-10 {
+        background-position: -100px -40px;
+    }
+    &2-11 {
+        background-position: -100px -50px;
+    }
+    &2-12 {
+        background-position: -90px -50px;
+    }
+    &2-13 {
+        background-position: -90px -30px;
+    }
+    &2-14 {
+        background-position: -100px -30px;
+    }
+    &2-15 {
+        background-position: -110px -30px;
+    }
+    &2-16 {
+        background-position: -120px -30px;
+    }
+    &2-17 {
+        background-position: -130px -30px;
+    }
+    &2-18 {
+        background-position: -110px -40px;
+    }
+    &2-19 {
+        background-position: -70px -60px;
+    }
+    &2-20 {
+        background-position: -80px -60px;
+    }
+    &2-21 {
+        background-position: -90px -60px;
+    }
+    &2-22 {
+        background-position: -100px -60px;
+    }
+    &2-23 {
+        background-position: -90px -70px;
+    }
+    &2-24 {
+        background-position: -100px -70px;
+    }
+    &2-25 {
+        background-position: -90px -80px;
+    }
+    &2-26 {
+        background-position: -100px -80px;
+    }
+    &2-27 {
+        background-position: -110px -80px;
+    }
 
-.type1-3 {
-    background-position: -50px -70px;
+    &3-1 {
+        background-position: -160px 0;
+    }
+    &3-2{
+        background-position: -170px 0;
+    }
+    &3-3 {
+        background-position: -180px 0;
+    }
+    &3-4 {
+        background-position: -180px -10px;
+    }
+    &3-5 {
+        background-position: -180px -20px;
+    }
+    &3-6 {
+        background-position: -170px -20px;
+    }
+    &3-7 {
+        background-position: -160px -20px;
+    }
+    &3-8 {
+        background-position: -160px -10px;
+    }
+    &3-9 {
+        background-position: -190px 0;
+    }
+    &3-10 {
+        background-position: -200px 0;
+    }
+    &3-11 {
+        background-position: -200px -10px;
+    }
+    &3-12 {
+        background-position: -190px -10px;
+    }
+    &3-13 {
+        background-position: -210px -30px;
+    }
 }
-
-.type1-4 {
-    background-position: -50px -80px;
-}
-
-.type1-5 {
-    background-position: -50px -90px;
-}
-
-.type1-6 {
-    background-position: -40px -90px;
-}
-.type1-7 {
-    background-position: -30px -90px;
-}
-.type1-8 {
-    background-position: -30px -80px;
-}
-
-
-
-
-
-
-.type2-1 {
-    background-position: -60px -30px;
-}
-.type2-2 {
-    background-position: -70px -30px;
-}
-.type2-3 {
-    background-position: -80px -30px;
-}
-.type2-4 {
-    background-position: -80px -40px;
-}
-.type2-5 {
-    background-position: -80px -50px;
-}
-.type2-6 {
-    background-position: -70px -50px;
-}
-.type2-7 {
-    background-position: -60px -50px;
-}
-.type2-8 {
-    background-position: -60px -40px;
-}
-.type2-9 {
-    background-position: -90px -40px;
-}
-.type2-10 {
-    background-position: -100px -40px;
-}
-.type2-11 {
-    background-position: -100px -50px;
-}
-.type2-12 {
-    background-position: -90px -50px;
-}
-.type2-13 {
-    background-position: -90px -30px;
-}
-.type2-14 {
-    background-position: -100px -30px;
-}
-.type2-15 {
-    background-position: -110px -30px;
-}
-.type2-16 {
-    background-position: -120px -30px;
-}
-.type2-17 {
-    background-position: -130px -30px;
-}
-.type2-18 {
-    background-position: -110px -40px;
-}
-.type2-19 {
-    background-position: -70px -60px;
-}
-.type2-20 {
-    background-position: -80px -60px;
-}
-.type2-21 {
-    background-position: -90px -60px;
-}
-.type2-22 {
-    background-position: -100px -60px;
-}
-.type2-23 {
-    background-position: -90px -70px;
-}
-.type2-24 {
-    background-position: -100px -70px;
-}
-
-.type2-25 {
-    background-position: -90px -80px;
-}
-.type2-26 {
-    background-position: -100px -80px;
-}
-.type2-27 {
-    background-position: -110px -80px;
-}
-
-
-
-
-.type3-1 {
-    background-position: -160px 0;
-}
-.type3-2{
-    background-position: -170px 0;
-}
-.type3-3 {
-    background-position: -180px 0;
-}
-.type3-4 {
-    background-position: -180px -10px;
-}
-.type3-5 {
-    background-position: -180px -20px;
-}
-.type3-6 {
-    background-position: -170px -20px;
-}
-.type3-7 {
-    background-position: -160px -20px;
-}
-.type3-8 {
-    background-position: -160px -10px;
-}
-
-.type3-9 {
-    background-position: -190px 0;
-}
-.type3-10 {
-    background-position: -200px 0;
-}
-.type3-11 {
-    background-position: -200px -10px;
-}
-.type3-12 {
-    background-position: -190px -10px;
-}
-.type3-13 {
-    background-position: -210px -30px;
-}
-
-
 
 .button1-1 {
     background-position: -210px 0;
@@ -271,62 +243,56 @@ p.textbox {
 }
 
 
-
-
-
-
-.inner1-1 {
-    background-position: -30px -40px;
-}
-.inner1-2 {
-    background-position: -30px -50px;
-}
-.inner1-3 {
-    background-position: -30px -60px;
-}
-.inner1-4 {
-    background-position: -40px -60px;
+.inner {
+    &1-1 {
+        background-position: -30px -40px;
+    }
+    &1-2 {
+        background-position: -30px -50px;
+    }
+    &1-3 {
+        background-position: -30px -60px;
+    }
+    &1-4 {
+        background-position: -40px -60px;
+    }
 }
 
-.floor1-1 {
-    background-position: -40px -50px;
+.floor {
+    &1-1 {
+        background-position: -40px -50px;
+    }
+    &1-2 {
+        background-position: -40px -80px;
+    }
+    &3-1 {
+        background-position: -240px 0;
+    }
+    &3-2 {
+        background-position: -240px -10px;
+    }
+    &3-3 {
+        background-position: -240px -20px;
+    }
+    &3-4 {
+        background-position: -240px -30px;
+    }
+    &3-5 {
+        background-position: -190px -30px;
+    }
+    &3-6 {
+        background-position: -240px -40px;
+    }
+    &3-7 {
+        background-position: -240px -50px;
+    }
+    &3-8 {
+        background-position: -240px -60px;
+    }
+    &3-9 {
+        background-position: -240px -70px;
+    }
 }
-
-.floor1-2 {
-    background-position: -40px -80px;
-}
-
-.floor3-1 {
-    background-position: -240px 0;
-}
-.floor3-2 {
-    background-position: -240px -10px;
-}
-.floor3-3 {
-    background-position: -240px -20px;
-}
-.floor3-4 {
-    background-position: -240px -30px;
-}
-
-.floor3-5 {
-    background-position: -190px -30px;
-}
-
-.floor3-6 {
-    background-position: -240px -40px;
-}
-.floor3-7 {
-    background-position: -240px -50px;
-}
-.floor3-8 {
-    background-position: -240px -60px;
-}
-.floor3-9 {
-    background-position: -240px -70px;
-}
-
-
 
 .fence1 {
     background-position: -40px -30px;
@@ -393,11 +359,10 @@ p.textbox {
         }
         33%, 64% {
             background-position-y: -20px;
-        }   
+        }
         48% {
             background-position-y: -30px;
         }
-    
     }
 }
 
@@ -424,8 +389,6 @@ p.textbox {
 }
 
 
-
-
 .fire1-1 {
     background-position: -230px 0;
     animation-duration: .9s;
@@ -441,16 +404,12 @@ p.textbox {
         }
         50% {
             background-position-y: -20px;
-        }   
+        }
         75% {
             background-position-y: -30px;
         }
-    
     }
-
 }
-
-
 
 .devtile {
     background-position:-20px 0;
@@ -458,17 +417,15 @@ p.textbox {
 
 
 #developer-true {
-
     @keyframes error1 {
         0% {
             filter:blur(0px);
             outline:.1px solid red;
         }
         60% {
-            filter:blur(0.2px) brightness(20);
+            filter:blur(.2px) brightness(20);
             outline:.1px solid yellow;
-        }   
-    
+        }
     }
 
 
@@ -478,19 +435,18 @@ p.textbox {
         height: $oneheight;
         width: $onewidth;
         z-index: 999;
-    }
 
-
-    .trigger::before {
-        height: 4px;
-        width: 3px;
-        background: blue;
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: "tr";
-        font-size: 3px;
-        color: white;
+        &::before {
+            height: 4px;
+            width: 3px;
+            background: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "tr";
+            font-size: 3px;
+            color: #fff;
+        }
     }
 
     p.textbox {
@@ -501,18 +457,17 @@ p.textbox {
         box-sizing: border-box;
         z-index: 999;
 
-    }
-
-    p.textbox::before {
-        height: 4px;
-        width: 6px;
-        background: red;
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: "txt";
-        font-size: 3px;
-        color: white;
+        &::before {
+            height: 4px;
+            width: 6px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "txt";
+            font-size: 3px;
+            color: #fff;
+        }
     }
 
     .positionboard {
@@ -527,80 +482,75 @@ p.textbox {
         background: #000;
     }
 
-    .field *:hover {
-        border: .3px solid #fff;
-        transition: 0s;
-        box-sizing: border-box;
-    }
-
-    .field *.enemy:hover {
-        border: .3px solid red;
-    }
-
-    .field *.wall:hover {
-        border: .3px solid purple;
+    .field {
+        * {
+            &:hover {
+                border: .3px solid #fff;
+                transition: 0s;
+                box-sizing: border-box;
+            }
+            &.enemy:hover {
+                border: .3px solid red;
+            }
+            &.wall:hover {
+                border: .3px solid purple;
+            }
+        }
     }
 
     .oldotherposition {
         background:transparent;
-        border:1px solid black;
+        border:1px solid #000;
         z-index:49;
-        transition: 0.2s;
-        height:0px;
-        width:0px;
+        transition: .2s;
+        height:0;
+        width:0;
         margin:4px;
     }
 
-    .slicer-marker1 {
-        background:transparent;
-        border:3px solid transparent;
-        border-right-color:red;
-        z-index:49;
-        height:0px;
-        width:0px;
-        margin:2px;
-
+    .slicer-marker {
+        &1 {
+            background:transparent;
+            border:3px solid transparent;
+            border-right-color:red;
+            z-index:49;
+            height:0;
+            width:0;
+            margin:2px;
+        }
+        &2 {
+            background:transparent;
+            border:3px solid transparent;
+            border-bottom-color:red;
+            z-index:49;
+            height:0;
+            width:0;
+            margin:2px;
+        }
+        &3 {
+            background:transparent;
+            border:3px solid transparent;
+            border-left-color:red;
+            z-index:49;
+            height:0;
+            width:0;
+            margin:2px;
+        }
+        &4 {
+            background:transparent;
+            border:3px solid transparent;
+            border-top-color:red;
+            z-index:49;
+            height:0;
+            width:0;
+            margin:2px;
+        }
+        &-e {
+            background:transparent;
+            animation-name: "error1";
+        }
     }
-
-    .slicer-marker2 {
-        background:transparent;
-        border:3px solid transparent;
-        border-bottom-color:red;
-        z-index:49;
-        height:0px;
-        width:0px;
-        margin:2px;
-    }
-    .slicer-marker3 {
-        background:transparent;
-        border:3px solid transparent;
-        border-left-color:red;
-        z-index:49;
-        height:0px;
-        width:0px;
-        margin:2px;
-    }
-    .slicer-marker4 {
-        background:transparent;
-        border:3px solid transparent;
-        border-top-color:red;
-        z-index:49;
-        height:0px;
-        width:0px;
-        margin:2px;
-    }
-
-    .slicer-marker-e {
-        background:transparent;
-        animation-name: "error1";
-
-
-    }
-
-
 }
-
-
 
 
 div[class*="house"],
@@ -612,65 +562,58 @@ div[class*="house"],
     background-size: 400px;
 }
 
-.house1-1,
-.house2-1 {
-    background-position: 0px -40px;
+.house {
+    &1-1,
+    &2-1 {
+        background-position: 0 -40px;
+    }
+    &1-2,
+    &2-2,
+    &2-3 {
+        background-position: -10px -40px;
+    }
+    &1-3,
+    &2-4 {
+        background-position: -20px -40px;
+    }
+    &1-4,
+    &2-5 {
+        background-position: 0 -50px;
+    }
+    &1-5,
+    &2-6,
+    &2-7 {
+        background-position: -10px -50px;
+    }
+    &1-6,
+    &2-8 {
+        background-position: -20px -50px;
+    }
+    &2-1,
+    &2-2,
+    &2-3,
+    &2-4,
+    &2-5,
+    &2-6,
+    &2-7,
+    &2-8 {
+        filter: hue-rotate(190deg);
+    }
+
+    &1-7,
+    &1-9,
+    &2-9,
+    &2-10,
+    &2-12 {
+        background-position: 0 -20px;
+    }
+
+    &1-8,
+    &2-11 {
+        background-position: 0 -30px;
+    }
 }
 
-.house1-2,
-.house2-2,
-.house2-3 {
-    background-position: -10px -40px;
-}
-
-.house1-3,
-.house2-4 {
-    background-position: -20px -40px;
-}
-
-.house1-4,
-.house2-5 {
-    background-position: 0px -50px;
-}
-
-.house1-5,
-.house2-6,
-.house2-7 {
-    background-position: -10px -50px;
-}
-
-.house1-6,
-.house2-8 {
-    background-position: -20px -50px;
-}
-
-.house2-1,
-.house2-2,
-.house2-3,
-.house2-4,
-.house2-5,
-.house2-6,
-.house2-7,
-.house2-8 {
-    filter: hue-rotate(190deg);
-}
-
-
-
-
-.house1-7,
-.house1-9,
-.house2-9,
-.house2-10,
-.house2-12 {
-    background-position: 0 -20px;
-}
-
-.house1-8,
-.house2-11 {
-    background-position: 0 -30px;
-
-}
 
 .path1 {
     background-position: -10px 0;
@@ -730,10 +673,10 @@ div[class*="house"],
     &.spikes {
         background-position: -370px 0;
     }
-    
+
     &.slicer {
         background-position: -350px 0;
-        transition: .2s linear; 
+        transition: .2s linear;
     }
 
     &.water1 {
@@ -752,18 +695,15 @@ div[class*="house"],
 .slicerbase1 {
     background-position: -350px -10px;
     opacity:.8;
-
 }
 
 .stairs2-1 {
     background-position: -50px -40px;
-
 }
 
 div[class*="npc"] {
     transition:0s;
 }
-
 
 .npc1 {
     background-position: -360px -10px;
@@ -775,11 +715,8 @@ div[class*="npc"] {
         }
         50% {
             background-position-y: 0;
-
         }
-    
     }
- 
 }
 
 .spring1 {
@@ -797,7 +734,6 @@ div[class*="npc"] {
 }
 
 .rupee1 {
-
     background-size: 320px;
     background-position:-303.75px -40px;
     height: 8px;
@@ -805,7 +741,6 @@ div[class*="npc"] {
     background-clip: content-box;
     border-top: 1px solid transparent;
     border-left: 3px solid transparent;
-
 }
 
 .hearts {
@@ -826,9 +761,8 @@ div[class*="npc"] {
         width: 30px;
         display: inline-block;
         margin: 5px;
-        background-position: -1140px 0px;
+        background-position: -1140px 0;
         background-size: 1200px;
-
 
         &.halfaHeart {
             float: right;
