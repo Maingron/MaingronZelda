@@ -911,25 +911,18 @@ function doEnemyTick() {
             }
         } else if (data.enemys[data.temp.iOfEnemyTick][0] == "hole") {
             if (data.runner.position.top == data.enemys[data.temp.iOfEnemyTick][2] && data.runner.position.left == data.enemys[data.temp.iOfEnemyTick][1]) {
-                data.runner.cango = {};
-                setTimeout(function () {
-                    data.runner.cango = {};
+
+                for (var i=0; i <= 4; i++) { // Stop player from moving
                     setTimeout(function () {
                         data.runner.cango = {};
-                        setTimeout(function () {
-                            data.runner.cango = {};
-                            setTimeout(function () {
-                                data.runner.cango = {};
-                            }, data.ticktime);
-                        }, data.ticktime);
-                    }, data.ticktime);
-                }, data.ticktime);
-
+                    }, data.ticktime * i);
+                }
 
                 data.runner.position.top = data.runner.oldposition.top;
                 data.runner.position.left = data.runner.oldposition.left;
 
             }
+
         } else if (data.enemys[data.temp.iOfEnemyTick][0] == "slicer") {
             if (data.runner.position.top == data.enemys[data.temp.iOfEnemyTick][2] && data.runner.position.left == data.enemys[data.temp.iOfEnemyTick][1]) {
                 doHurt(1);
