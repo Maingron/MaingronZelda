@@ -1020,7 +1020,7 @@ loadOptions2();
 
 function doInMenuTick() {
 
-    if (data.runner.inmenu == !0) {
+    if (data.runner.inmenu == true) {
         data.temp.menuGoBack = 0;
         data.runner.cango.down = 0;
         data.runner.cango.up = 0;
@@ -1031,10 +1031,8 @@ function doInMenuTick() {
         } else if (data.runner.position.left == 4) {
             setTimeout(function () {
                 if (data.runner.inmenu) {
-
                     data.runner.position.left = 3;
                     data.runner.cango.right = 0;
-
                 }
             }, data.ticktime);
 
@@ -1050,46 +1048,14 @@ function doInMenuTick() {
         }
         if (data.runner.iframe <= 0) {
 
-            if (data.keypress.down) {
-                data.menuitem++;
-                data.runner.iframe = 50;
-            } else if (data.keypress.up && data.menuitem > 0) {
-                data.menuitem--;
-                data.runner.iframe = 50;
-            }
-
         } else if (data.runner.inmenu == 0) {
             data.menuitem = 1;
         }
-
+        if (data.temp.menuGoBack && pData.level != "004") {
+            loadLevel("004");
+        }
         if (pData.level == "004") {
-            if (data.menuitem == "1") {
-                data.runner.position.top = 3;
-            }
-            if (data.menuitem == "2") {
-                data.runner.position.top = 5;
-            }
-
-            if (data.menuitem == "3") {
-                data.runner.position.top = 7;
-            }
-
-            if (data.menuitem > 3) {
-                data.menuitem = 3;
-            }
-
         } else if (pData.level == "004-2") {
-            if (data.temp.menuGoBack) {
-                loadLevel("004");
-            }
-
-            if (data.menuitem == "1") {
-                data.runner.position.top = 1;
-            }
-
-            if (data.menuitem > 1) {
-                data.menuitem = 1;
-            }
         }
     } else if (!data.runner.inmenu) {
         if (data.runner.oldposition.top && data.runner.walkposition.top) {
