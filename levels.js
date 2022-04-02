@@ -551,7 +551,7 @@ function loadLevel(level = pData.level) {
 
 
 
-    } else if (level.indexOf("004") >= 0) { //Level 4 / Pause Menu
+    } else if (level.indexOf("004") >= 0) { // Level 4 / Pause Menu
         summonElement("runner", objects.field, 25, 5);
 
         data.runner.position.top = 7;
@@ -581,6 +581,9 @@ function loadLevel(level = pData.level) {
 
             summonElement("trigger", objects.field, 4, 1, "saveState('colormode',t)");
             summonElement("textbox", objects.field, 5, 1, lang.colormode1);
+
+            summonElement("trigger", objects.field, 4, 2, "saveState('music',music)");
+            summonElement("textbox", objects.field, 5, 2, lang.music);
 
             summonElement("trigger", objects.field, 4, 3, "loadLevel(004-5");
             summonElement("textbox", objects.field, 5, 3, lang.reset);

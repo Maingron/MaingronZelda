@@ -966,8 +966,18 @@ function saveState(name, content) {
         } else {
             content = 1;
         }
+    } else if (content == "music") {
+        if(loadState(name) != "false") {
+            content = false;
+        } else {
+            content = "true";
+        }
+        var reloadaftersetting = true;
     }
     localStorage.setItem(name, content);
+    if(reloadaftersetting) {
+        window.location.reload();
+    }
 }
 
 function loadState(name) {
@@ -1165,4 +1175,8 @@ function cleanupTiles() {
 
 function doSave() {
     saveState("pData.leveldata", JSON.stringify(pData.leveldata));
+}
+
+if(loadState("music") == null) {
+    saveState("music", "true");
 }

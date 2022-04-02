@@ -8,11 +8,12 @@ function extend(a, b){
     return a;
 } 
 
-
-if(soundtrack) {
-    soundtrack = playsoundtrack;
-} else {
-    var soundtrack = playsoundtrack;
+if(loadState("music") != "false") {
+    if(soundtrack) {
+        soundtrack = playsoundtrack;
+    } else {
+        var soundtrack = playsoundtrack;
+    }
 }
 
 function playsoundtrack(startstop, which) {

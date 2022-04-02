@@ -3,6 +3,7 @@ var lang = {
     "loadgame": "Load Game",
     "levelselect":"Select Level",
     "options":"Options",
+    "music":"Music",
     "reset":"Reset",
     "back":"Back",
     "colormode1": "Toggle Color mode",
