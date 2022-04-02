@@ -568,7 +568,6 @@ function loadLevel(level = pData.level) {
             summonElement("trigger", objects.field, 4, 3, "loadLevel(1)");
             summonElement("textbox", objects.field, 5, 3, lang.newgame);
 
-
             summonElement("trigger", objects.field, 4, 5, "loadLevel(" + loadState("cLevel") + ")");
             summonElement("textbox", objects.field, 5, 5, lang.loadgame);
 
@@ -580,7 +579,6 @@ function loadLevel(level = pData.level) {
 
         } else if (level == "004-2") { // Options menu
 
-            summonElement("trigger", objects.field, 0, 0, "loadLevel(004)");
             summonElement("textbox", objects.field, 0, 0, lang.back);
 
             summonElement("trigger", objects.field, 4, 1, "saveState('colormode',t)");
@@ -593,28 +591,28 @@ function loadLevel(level = pData.level) {
             loadLevel("004");
 
         } else if (level == "004-4") { // Level Selection
-
-            summonElement("trigger", objects.field, 0, 0, "loadLevel(004)");
             summonElement("textbox", objects.field, 0, 0, lang.back);
 
-
             summonElement("trigger", objects.field, 4, 4, "loadLevel(001)");
-            summonElement("textbox", objects.field, 5, 4, "loadLevel(001)");
-            
-            summonElement("trigger", objects.field, 4, 5, "loadLevel(003)");
-            summonElement("textbox", objects.field, 5, 5, "loadLevel(003)");
+            summonElement("textbox", objects.field, 5, 4, lang.levelname["001"]);
 
-            summonElement("trigger", objects.field, 4, 6, "loadLevel(005)");
-            summonElement("textbox", objects.field, 5, 6, "loadLevel(005)");
+            summonElement("trigger", objects.field, 4, 5, "loadLevel(002-1)");
+            summonElement("textbox", objects.field, 5, 5, lang.levelname["002"]);
 
-            summonElement("trigger", objects.field, 4, 7, "loadLevel(006)");
-            summonElement("textbox", objects.field, 5, 7, "loadLevel(006)");
+            summonElement("trigger", objects.field, 4, 6, "loadLevel(003)");
+            summonElement("textbox", objects.field, 5, 6, lang.levelname["003"]);
 
-            summonElement("trigger", objects.field, 4, 8, "loadLevel(007)");
-            summonElement("textbox", objects.field, 5, 8, "loadLevel(007)");
+            summonElement("trigger", objects.field, 4, 7, "loadLevel(005)");
+            summonElement("textbox", objects.field, 5, 7, lang.levelname["005"]);
 
-            summonElement("trigger", objects.field, 4, 9, "loadLevel(008)");
-            summonElement("textbox", objects.field, 5, 9, "loadLevel(008)");
+            summonElement("trigger", objects.field, 4, 8, "loadLevel(006)");
+            summonElement("textbox", objects.field, 5, 8, lang.levelname["006"]);
+
+            summonElement("trigger", objects.field, 4, 9, "loadLevel(007)");
+            summonElement("textbox", objects.field, 5, 9, lang.levelname["007"]);
+
+            summonElement("trigger", objects.field, 4, 10, "loadLevel(008)");
+            summonElement("textbox", objects.field, 5, 10, lang.levelname["008"]);
         } else if (level == "004-5") { // Reset
             reset();
         }
