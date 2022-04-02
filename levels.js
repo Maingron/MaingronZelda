@@ -1,9 +1,11 @@
 function loadLevel(level = pData.level) {
 
-
     pData.level = level;
     init();
     data.runner.inmenu = 0;
+
+    // summonElement("runner", objects.field, 0, 0);
+    // objects.runner = document.getElementsByClassName("runner")[0];
 
     objects.gameframe.classList.add("loadframe");
 
@@ -13,13 +15,9 @@ function loadLevel(level = pData.level) {
     }
 
 
-
-
-
-
     if (level == 1) { //Level 1
-        soundtrack("start",songs["pokemon"]);
         summonElement("runner", objects.field, 11, 9);
+        soundtrack("start",songs["pokemon"]);
 
         data.runner.position.top = 10;
         data.runner.position.left = 11;
@@ -726,37 +724,17 @@ function loadLevel(level = pData.level) {
         summonElement("door1-1", "", 100, 185);
         summonElement("door1-3", "", 100, 184);
 
-
-
-
-
-
-
         summonElement("trigger", "", 100, 199, "loadLevel(002-3)");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     } else if (level.indexOf("007") >= 0) { //Level 7 - Dungeon 1
+
         soundtrack("start",songs["sonic"]);
 
 
-        summonElement("runner", objects.field, 100, 150);
-        data.runner.position.top = 150;
+        summonElement("runner", objects.field, 100, 198);
+        data.runner.position.top = 198;
         data.runner.position.left = 100;
 
         data.field.height = 200;

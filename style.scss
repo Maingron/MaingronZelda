@@ -177,13 +177,13 @@ p.textbox {
         background-position: -100px -70px;
     }
     &2-25 {
-        background-position: -90px -80px;
+        background-position: -90px -40px;
     }
     &2-26 {
-        background-position: -100px -80px;
+        background-position: -70px -50px;
     }
     &2-27 {
-        background-position: -110px -80px;
+        background-position: -100px -40px;
     }
 
     &3-1 {
@@ -478,15 +478,16 @@ p.textbox {
     .field {
         * {
             &:hover {
-                border: .3px solid #fff;
+                outline: .3px solid #fff;
                 transition: 0s;
                 box-sizing: border-box;
+                z-index: 999;
             }
             &.enemy:hover {
-                border: .3px solid red;
+                outline: .3px solid red;
             }
             &.wall:hover {
-                border: .3px solid purple;
+                outline: .3px solid purple;
             }
         }
     }

@@ -3,6 +3,12 @@ var pData = { // pData means permanent Data like saves
     "leveldata": {}
 };
 
+if(soundtrack) {
+
+} else {
+    var soundtrack = function() {};
+}
+
 var objects = {};
 var data = {
     "temp": {}
@@ -281,6 +287,11 @@ function destroyElement(x, y, type) {
 }
 
 function summonElement(classname, childof, x = 0, y = 0, triggerdo) {
+    if(classname == "runner") {
+        if(document.getElementsByClassName("runner")[0]) {
+            document.getElementsByClassName("runner")[0].outerHTML = "";
+        }
+    }
     data.idcount++;
     if (childof == "") {
         childof = objects.field;

@@ -9,8 +9,13 @@ function extend(a, b){
 } 
 
 
+if(soundtrack) {
+    soundtrack = playsoundtrack;
+} else {
+    var soundtrack = playsoundtrack;
+}
 
-function soundtrack(startstop, which) {
+function playsoundtrack(startstop, which) {
     if(startstop == "start") {
         if(midiPlayer.isplaying) {
             stopPlaying();
