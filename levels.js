@@ -259,10 +259,10 @@ function loadLevel(level = pData.level) {
         summonElement("trigger", objects.field, 64, 21, "loadLevel(005)");
 
 
-        data.walls.push("house2-12,65,21");
-        data.walls.push("house2-12,66,21");
-        data.walls.push("house2-12,67,21");
-        data.walls.push("house2-12,68,21");
+        data.walls.push("house2-10,65,21");
+        data.walls.push("house2-13,66,21");
+        data.walls.push("house2-10,67,21");
+        data.walls.push("house2-10,68,21");
         data.walls.push("house2-12,69,21");
 
 
@@ -311,6 +311,8 @@ function loadLevel(level = pData.level) {
         data.walls.push("type2-18,68,36");
         data.walls.push("type2-18,70,36");
         data.walls.push("type2-18,72,36");
+        data.walls.push("type2-24,73,36");
+
 
         summonElement("stairs2-1", "", 71, 35);
         summonElement("stairs2-1", "", 71, 36);
