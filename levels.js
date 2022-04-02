@@ -784,9 +784,6 @@ function loadLevel(level = pData.level) {
 
 
         for (data.temp.iOfLG = 1; data.temp.iOfLG < 199; data.temp.iOfLG++) {
-
-
-
             if (data.temp.iOfLG != 90 && data.temp.iOfLG != 91 && data.temp.iOfLG != 100 && data.temp.iOfLG != 109 && data.temp.iOfLG != 110 && data.temp.iOfLG != 71 && data.temp.iOfLG != 72 && data.temp.iOfLG != 128 && data.temp.iOfLG != 129 && data.temp.iOfLG != 147 && data.temp.iOfLG != 148 ) {
 
                 summonElement("type3-5", "", 71, 199);
@@ -819,12 +816,22 @@ function loadLevel(level = pData.level) {
 
                     data.walls.push("type3-6," + data.temp.iOfLG + ",144");
                     data.walls.push("type3-2," + data.temp.iOfLG + ",145");
-
-
-
                 }
             }
         }
+
+        
+        data.walls.push("type3-10, 99, 188");
+        data.walls.push("type3-11, 99, 189");
+
+        data.walls.push("type3-9, 101, 188");
+        data.walls.push("type3-12, 101, 189");
+
+
+        summonElement("floor3-1", "", 100, 188);
+        summonElement("floor3-1", "", 100, 189);
+
+
 
         for (data.temp.iOfLG = 146; data.temp.iOfLG < 199; data.temp.iOfLG++) {
             if (data.temp.iOfLG != 188 && data.temp.iOfLG != 189 && data.temp.iOfLG != 178 && data.temp.iOfLG != 177 && data.temp.iOfLG != 183 && data.temp.iOfLG != 166 && data.temp.iOfLG != 167 && data.temp.iOfLG != 155 && data.temp.iOfLG != 156 && data.temp.iOfLG != 161 && data.temp.iOfLG != 150) {
@@ -944,7 +951,7 @@ function loadLevel(level = pData.level) {
         data.enemys.push("hole,94,172");
         data.enemys.push("hole,95,172");
 
-        data.enemys.push("hole,93,173");        
+        data.enemys.push("hole,93,173");
         data.enemys.push("hole,105,173");
         data.enemys.push("hole,106,173");
         data.enemys.push("hole,108,173");
