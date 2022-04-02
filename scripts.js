@@ -1123,13 +1123,20 @@ function randomizeGraphics() {
         } else if (data.temp.randomnumber1 == 3) {
             document.getElementsByClassName("floor3-1")[data.temp.iOfRandom1].classList.add("floor3-4");
             document.getElementsByClassName("floor3-1")[data.temp.iOfRandom1].classList.remove("floor3-1");
-
         }
         // randomizeGraphicsSub1(document.getElementsByClassName("floor3-1"));
     }
 
     for (data.temp.iOfRandom1 = 0; document.getElementsByClassName("floor3-5").length > data.temp.iOfRandom1; data.temp.iOfRandom1++) {
         randomizeGraphicsSub1(document.getElementsByClassName("floor3-5"));
+    }
+
+    for (data.temp.iOfRandom1 = 0; document.getElementsByClassName("floor1-1").length > data.temp.iOfRandom1; data.temp.iOfRandom1++) {
+        data.temp.randomnumber1 = Math.floor(Math.random() * 3);
+
+        if (data.temp.randomnumber1 == 1) {
+            document.getElementsByClassName("floor1-1")[data.temp.iOfRandom1].classList.add("floor1-3");
+        }
     }
 
     // for(data.temp.iOfRandom1 = 0; document.getElementsByClassName("hole").length > data.temp.iOfRandom1; data.temp.iOfRandom1++) {
