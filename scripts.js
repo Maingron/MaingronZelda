@@ -357,39 +357,41 @@ function summonElementKey(classname, levelnr, keynr, x, y) { // Spawn a key
     }
 }
 
-window.addEventListener("keydown", function (event) {
-    if (event.key == "w") {
+window.addEventListener("keydown", function(event) {
+    var eventkeylowercase = event.key.toLowerCase();
+    console.log(eventkeylowercase);
+    if (eventkeylowercase == "w") {
         data.keypress.up = !0;
-    } else if (event.key == "s") {
+    } else if (eventkeylowercase == "s") {
         data.keypress.down = !0;
-    } else if (event.key == "ArrowUp") {
+    } else if (eventkeylowercase == "arrowup") {
         data.keypress.up = !0;
-    } else if (event.key == "ArrowDown") {
+    } else if (eventkeylowercase == "arrowdown") {
         data.keypress.down = !0;
     }
 
-    if (event.key == "e") {
+    if (eventkeylowercase == "e") {
         data.keypress.interact = !0;
     }
 
-    if (event.key == "a") {
+    if (eventkeylowercase == "a") {
         data.keypress.left = !0;
-    } else if (event.key == "d") {
+    } else if (eventkeylowercase == "d") {
         data.keypress.right = !0;
-    } else if (event.key == "ArrowLeft") {
+    } else if (eventkeylowercase == "arrowleft") {
         data.keypress.left = !0;
-    } else if (event.key == "ArrowRight") {
+    } else if (eventkeylowercase == "arrowright") {
         data.keypress.right = !0;
     }
 
-    if (event.key == "Escape") {
+    if (eventkeylowercase == "escape") {
         data.runner.inmenu = !0;
         data.runner.walkposition = data.runner.position;
         loadLevel("004-3");
     }
 
     //developer:
-    if (event.key == "c") {
+    if (eventkeylowercase == "c") {
         if (!data.walls2) {
             data.walls2 = data.walls;
             data.walls = "";
@@ -410,35 +412,36 @@ window.addEventListener("keydown", function (event) {
 
 
 window.addEventListener("keyup", function (event) {
-    if (event.key == "w") {
+    var eventkeylowercase = event.key.toLowerCase();
+    if (eventkeylowercase == "w") {
         data.keypress.up = !1;
     }
 
-    if (event.key == "s") {
+    if (eventkeylowercase == "s") {
         data.keypress.down = !1;
     }
 
-    if (event.key == "a") {
+    if (eventkeylowercase == "a") {
         data.keypress.left = !1;
 
     }
-    if (event.key == "d") {
+    if (eventkeylowercase == "d") {
         data.keypress.right = !1;
     }
 
-    if (event.key == "ArrowUp") {
+    if (eventkeylowercase == "arrowup") {
         data.keypress.up = !1;
     }
 
-    if (event.key == "ArrowDown") {
+    if (eventkeylowercase == "arrowdown") {
         data.keypress.down = !1;
     }
 
-    if (event.key == "ArrowLeft") {
+    if (eventkeylowercase == "arrowleft") {
         data.keypress.left = !1;
     }
 
-    if (event.key == "ArrowRight") {
+    if (eventkeylowercase == "arrowright") {
         data.keypress.right = !1;
     }
 });
