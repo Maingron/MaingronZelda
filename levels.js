@@ -564,15 +564,19 @@ function loadLevel(level = pData.level) {
 
         if (level == "004") {
             summonElement("trigger", objects.field, 4, 3, "loadLevel(1)");
+            summonElement("button1-1", objects.field, 4, 3);
             summonElement("textbox", objects.field, 5, 3, lang.newgame);
 
             summonElement("trigger", objects.field, 4, 5, "loadLevel(" + loadState("cLevel") + ")");
+            summonElement("button1-1", objects.field, 4, 5);
             summonElement("textbox", objects.field, 5, 5, lang.loadgame);
 
             summonElement("trigger", objects.field, 4, 7, "loadLevel(004-4)");
+            summonElement("button1-1", objects.field, 4, 7);
             summonElement("textbox", objects.field, 5, 7, lang.levelselect);
 
             summonElement("trigger", objects.field, 4, 9, "loadLevel(004-2)");
+            summonElement("button1-1", objects.field, 4, 9);
             summonElement("textbox", objects.field, 5, 9, lang.options);
 
         } else if (level == "004-2") { // Options menu
@@ -580,13 +584,29 @@ function loadLevel(level = pData.level) {
             summonElement("textbox", objects.field, 0, 0, lang.back);
 
             summonElement("trigger", objects.field, 4, 1, "saveState('colormode',t)");
+
+            
+
+            if(loadState("colormode") != "1") {
+                summonElement("button1-1", objects.field, 4, 1);
+            } else {
+                summonElement("button1-2", objects.field, 4, 1);
+            }
+
             summonElement("textbox", objects.field, 5, 1, lang.colormode1);
 
-            summonElement("trigger", objects.field, 4, 2, "saveState('music',music)");
-            summonElement("textbox", objects.field, 5, 2, lang.music);
 
-            summonElement("trigger", objects.field, 4, 3, "loadLevel(004-5");
-            summonElement("textbox", objects.field, 5, 3, lang.reset);
+            summonElement("trigger", objects.field, 4, 2, "saveState('music',music)");
+            if(loadState("music") != "false") {
+                summonElement("button1-2", objects.field, 4, 2);
+            } else {
+                summonElement("button1-1", objects.field, 4, 2);
+            }
+            summonElement("textbox", objects.field, 5, 2, lang.music);
+            
+            summonElement("trigger", objects.field, 4, 4, "loadLevel(004-5)");
+            summonElement("button1-1", objects.field, 4, 4);
+            summonElement("textbox", objects.field, 5, 4, lang.reset);
 
         } else if (level == "004-3") { // Pause menu
             loadLevel("004");

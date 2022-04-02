@@ -256,7 +256,7 @@ function init2() {
 loadLevel();
 
 function makeKeygroup(number, which) {
-    console.log("Missing Feature:makeKeygroup()")
+    console.log("Missing Feature:makeKeygroup()");
 }
 
 function destroyElement(x, y, type) {
@@ -283,7 +283,6 @@ function destroyElement(x, y, type) {
             }
         }
     }
-
 }
 
 function summonElement(classname, childof, x = 0, y = 0, triggerdo) {
