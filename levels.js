@@ -227,7 +227,6 @@ function loadLevel(level = pData.level) {
 
 
         if (pData.runner.developer == 1) {
-            data.enemys.push("spikes,53,21");
             data.enemys.push("hole,73,31");
         }
 
