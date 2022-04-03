@@ -72,16 +72,6 @@ function createRoom(x,y, type, buildTop = 1, buildRight = 1, buildBottom = 1, bu
     }
 
 
-
-
-            // for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
-        //     for (data.temp.iOfLG2 = 190; data.temp.iOfLG2 < 199; data.temp.iOfLG2++) {
-        //         summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
-        //     }
-        // }
-
-
-
 function loadLevel(level = pData.level) {
 
     pData.level = level;
@@ -100,12 +90,11 @@ function loadLevel(level = pData.level) {
 
 
     if (level == 1) { //Level 1
-        summonElement("runner", objects.field, 11, 9);
+        summonElement("runner", objects.field, 4, 2);
         soundtrack("start",songs["pokemon"]);
 
-        data.runner.position.top = 10;
-        data.runner.position.left = 11;
-        data.walls.push("black,15,0");
+        data.runner.position.top = 2;
+        data.runner.position.left = 4;
         data.walls.push("type1-1,0,0");
         data.walls.push("type1-3,17,0");
         data.walls.push("type1-5,17,11");
