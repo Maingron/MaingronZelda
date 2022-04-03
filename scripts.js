@@ -36,7 +36,7 @@ if (loadState("initinit")) {
 
     saveState("pData.leveldata", JSON.stringify(pData.leveldata));
     saveState("initinit", 1);
-    location.reload();
+    // location.reload();
 }
 
 
@@ -334,19 +334,10 @@ function summonElement(classname, childof, x = 0, y = 0, triggerdo) {
         data.temp.newElement.title = triggerdo;
     }
 
-    // if(classname.indexOf("floor")>=0 || classname.indexOf("type")>=0) {
-    //     data.temp.newElement.id = data.idcount;
-    //     data.floor[data.floor.length] = [classname,x,y,data.idcount];
-    // }
-
     if (classname != "field" && classname != "runner" && classname != "hearts" && classname != "aHeart" && classname != "halfaHeart") {
         data.temp.newElement.id = data.idcount;
         data.allthings[data.allthings.length] = [classname, x, y, data.idcount];
 
-        // if (pData.runner.developer) {
-        //     if (classname == "trigger" || classname == "oldotherposition" || classname == "positionboard") {
-        //     }
-        // }
     }
 }
 
