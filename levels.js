@@ -1,3 +1,87 @@
+function createRoom(x,y, type, buildTop = 1, buildRight = 1, buildBottom = 1, buildLeft = 1) {
+    // Build** == 0: Don't spawn walls on that side
+    // Build** == 1: Spawn walls on that side + leave space for door
+    // TODO Build** == 2: Spawn walls on that side and block walls
+    // TODO Build** == 3: Spawn fully wall-filled room
+    console.log(x,y);
+    for(var i = 1; i < 18; i++) { // Walls top bottom
+        if(i != 8 && i != 9 && i != 10) {
+            if(buildTop == 1) {
+                data.walls.push("type3-2,"+(x + i)+","+y);
+            }
+            if(buildBottom == 1) {
+                data.walls.push("type3-6,"+(x + i)+","+(y+10));
+            }
+        }
+    }
+
+    for(var j = 1; j < 10; j++) { // Walls left right
+        if(j != 4 && j != 5 && j != 6) {
+            if(buildLeft == 1) {
+                data.walls.push("type3-8,"+(x)+","+(y+j));
+            }
+
+            if(buildRight == 1) {
+                data.walls.push("type3-4,"+(x + 18)+","+(y+j));
+            }
+        }
+    }
+
+    for(var i = 0; i < 19; i++) { // Floor
+        for(var j = 0; j < 11; j++) {
+            summonElement("floor3-1", "", (x + i), (y + j));
+        }
+    }
+
+    // Room corners
+    summonElement("type3-1","",x,y);
+    summonElement("type3-3","",(x+18),y);
+    summonElement("type3-7","",x,(y+10));
+    summonElement("type3-5","",(x+18),(y+10));
+
+
+    // Room door areas
+
+        // Left
+        if(buildLeft == 1) {
+            data.walls.push("type3-11, "+(x)+","+(y+4));
+            data.walls.push("type3-10, "+(x)+","+(y+6));
+            // summonElement("floor3-1", "", (x), (y + 5));
+        }
+
+        // Right
+        if(buildRight == 1) {
+            data.walls.push("type3-12, "+(x+18)+","+(y+4));
+            data.walls.push("type3-9, "+(x+18)+","+(y+6));
+            // summonElement("floor3-1", "", (x+18), (y + 5));
+        }
+            
+        // Top
+        if(buildTop == 1) {
+            data.walls.push("type3-11, "+(x+8)+","+(y));
+            data.walls.push("type3-12, "+(x+10)+","+(y));
+            // summonElement("floor3-1", "", (x+9), (y));
+        }
+
+        // Bottom
+        if(buildBottom == 1) {
+            data.walls.push("type3-10, "+(x+8)+","+(y + 10));
+            data.walls.push("type3-9, "+(x+10)+","+(y + 10));
+            // summonElement("floor3-1", "", (x+9), (y + 10));
+        }
+    }
+
+
+
+
+            // for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
+        //     for (data.temp.iOfLG2 = 190; data.temp.iOfLG2 < 199; data.temp.iOfLG2++) {
+        //         summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
+        //     }
+        // }
+
+
+
 function loadLevel(level = pData.level) {
 
     pData.level = level;
@@ -483,10 +567,10 @@ function loadLevel(level = pData.level) {
         summonElement("type3-7", "", 21, 2);
         summonElement("type3-8", "", 21, 1);
 
-        summonElement("type3-9", "", 24, 0);
-        summonElement("type3-10", "", 25, 0);
-        summonElement("type3-11", "", 25, 1);
-        summonElement("type3-12", "", 24, 1);
+        // summonElement("type3-9", "", 24, 0);
+        // summonElement("type3-10", "", 25, 0);
+        // summonElement("type3-11", "", 25, 1);
+        // summonElement("type3-12", "", 24, 1);
 
         summonElement("button1-1", "", 26, 0);
         summonElement("button1-2", "", 26, 1);
@@ -783,102 +867,18 @@ function loadLevel(level = pData.level) {
         // //devtiles generator END
 
 
-        for (data.temp.iOfLG = 1; data.temp.iOfLG < 199; data.temp.iOfLG++) {
-            if (data.temp.iOfLG != 90 && data.temp.iOfLG != 91 && data.temp.iOfLG != 100 && data.temp.iOfLG != 109 && data.temp.iOfLG != 110 && data.temp.iOfLG != 71 && data.temp.iOfLG != 72 && data.temp.iOfLG != 128 && data.temp.iOfLG != 129 && data.temp.iOfLG != 147 && data.temp.iOfLG != 148 ) {
-
-                summonElement("type3-5", "", 71, 199);
-                summonElement("type3-7", "", 72, 199); 
-
-                summonElement("type3-5", "", 128, 199);
-                summonElement("type3-7", "", 129, 199); 
-
-
-                summonElement("type3-5", "", 90, 199);
-                summonElement("type3-7", "", 91, 199); 
-
-                summonElement("type3-5", "", 109, 199);
-                summonElement("type3-7", "", 110, 199);
-
-                data.walls.push("type3-6," + data.temp.iOfLG + ",199");
-
-                if (data.temp.iOfLG >= 73 && data.temp.iOfLG <= 148) {
-                    data.walls.push("type3-6," + data.temp.iOfLG + ",188");
-                    data.walls.push("type3-2," + data.temp.iOfLG + ",189");
-
-                    data.walls.push("type3-6," + data.temp.iOfLG + ",177");
-                    data.walls.push("type3-2," + data.temp.iOfLG + ",178");
-
-                    data.walls.push("type3-6," + data.temp.iOfLG + ",166");
-                    data.walls.push("type3-2," + data.temp.iOfLG + ",167");
-
-                    data.walls.push("type3-6," + data.temp.iOfLG + ",155");
-                    data.walls.push("type3-2," + data.temp.iOfLG + ",156");
-
-                    data.walls.push("type3-6," + data.temp.iOfLG + ",144");
-                    data.walls.push("type3-2," + data.temp.iOfLG + ",145");
-                }
-            }
-        }
-
-        
-        data.walls.push("type3-10, 99, 188");
-        data.walls.push("type3-11, 99, 189");
-
-        data.walls.push("type3-9, 101, 188");
-        data.walls.push("type3-12, 101, 189");
-
-
-        summonElement("floor3-1", "", 100, 188);
-        summonElement("floor3-1", "", 100, 189);
-
-
-
-        for (data.temp.iOfLG = 146; data.temp.iOfLG < 199; data.temp.iOfLG++) {
-            if (data.temp.iOfLG != 188 && data.temp.iOfLG != 189 && data.temp.iOfLG != 178 && data.temp.iOfLG != 177 && data.temp.iOfLG != 183 && data.temp.iOfLG != 166 && data.temp.iOfLG != 167 && data.temp.iOfLG != 155 && data.temp.iOfLG != 156 && data.temp.iOfLG != 161 && data.temp.iOfLG != 150) {
-                data.walls.push("type3-4,90," + data.temp.iOfLG);
-                data.walls.push("type3-8,91," + data.temp.iOfLG);
-
-                data.walls.push("type3-4,109," + data.temp.iOfLG);
-                data.walls.push("type3-8,110," + data.temp.iOfLG);
-
-                data.walls.push("type3-4,128," + data.temp.iOfLG);
-                data.walls.push("type3-8,129," + data.temp.iOfLG);
-
-                data.walls.push("type3-4,71," + data.temp.iOfLG);
-                data.walls.push("type3-8,72," + data.temp.iOfLG);
-
-                data.walls.push("type3-4,109," + data.temp.iOfLG);
-                data.walls.push("type3-8,110," + data.temp.iOfLG);
-
-                data.walls.push("type3-4,147," + data.temp.iOfLG);
-                data.walls.push("type3-8,148," + data.temp.iOfLG);
-
-
-
-
-            }
-        }
-
-
-        
-
-
-
+        createRoom(91,189);
 
         summonElement("door1-1", "", 100, 189);
         summonElement("door1-3", "", 100, 188);
 
-        for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
-            for (data.temp.iOfLG2 = 190; data.temp.iOfLG2 < 199; data.temp.iOfLG2++) {
-                summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
-            }
-        }
 
         data.walls.push("chest1-1,94,192");
 
 
         summonElement("button1-1", "", 106, 192);
 
+        // Flame decoration in room with entrance
         data.walls.push("fire1-1,107,198");
         data.walls.push("fire1-1,108,198");
         data.walls.push("fire1-1,108,197");
@@ -889,20 +889,16 @@ function loadLevel(level = pData.level) {
 
 
 
-        for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
-            for (data.temp.iOfLG2 = 179; data.temp.iOfLG2 < 188; data.temp.iOfLG2++) {
-                summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
-            }
-        }
+        createRoom(91,178); // Room with the stones in the middle
+
+        // for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
+        //     for (data.temp.iOfLG2 = 179; data.temp.iOfLG2 < 188; data.temp.iOfLG2++) {
+        //         summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
+        //     }
+        // }
 
 
-        for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
-            for (data.temp.iOfLG2 = 168; data.temp.iOfLG2 < 177; data.temp.iOfLG2++) {
-                summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
-            }
-        }
-
-
+        createRoom(91,167); // Room with one spring
 
 
         data.enemys.push("hole,99,168");
@@ -968,7 +964,7 @@ function loadLevel(level = pData.level) {
         data.enemys.push("hole,93,176");
         data.enemys.push("hole,105,176");
 
-        
+
 
 
         summonElement("hole", "", 100,170);
@@ -1060,21 +1056,12 @@ function loadLevel(level = pData.level) {
 
 
 
-
-
-        for (data.temp.iOfLG = 111; data.temp.iOfLG < 128; data.temp.iOfLG++) {
-            for (data.temp.iOfLG2 = 179; data.temp.iOfLG2 < 188; data.temp.iOfLG2++) {
-                summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
-            }
-        }
-
-
+        createRoom(110,178); // Room with slicers
 
         data.walls.push("type3-4,128,183");
         data.walls.push("type3-8,129,183");
 
         data.enemys.push("slicer,116,179,115,178,117,184");
-
 
 
         data.walls.push("type3-13,111,182");
@@ -1121,122 +1108,7 @@ function loadLevel(level = pData.level) {
 
 
 
-        summonElement("floor3-5", "", 112, 180);
-
-
-        summonElement("type3-5", "", 109, 188);
-        summonElement("type3-7", "", 110, 188);
-        summonElement("type3-3", "", 109, 189);
-        summonElement("type3-1", "", 110, 189);
-
-        summonElement("type3-5", "", 90, 188);
-        summonElement("type3-7", "", 91, 188);
-        summonElement("type3-3", "", 90, 189);
-        summonElement("type3-1", "", 91, 189);
-
-        summonElement("type3-5", "", 109, 177);
-        summonElement("type3-7", "", 110, 177);
-        summonElement("type3-3", "", 109, 178);
-        summonElement("type3-1", "", 110, 178);
-
-        summonElement("type3-5", "", 90, 177);
-        summonElement("type3-7", "", 91, 177);
-        summonElement("type3-3", "", 90, 178);
-        summonElement("type3-1", "", 91, 178);
-        
-        summonElement("type3-5", "", 71, 177);
-        summonElement("type3-7", "", 72, 177);
-        summonElement("type3-3", "", 71, 178);
-        summonElement("type3-1", "", 72, 178);
-
-        summonElement("type3-5", "", 71, 188);
-        summonElement("type3-7", "", 72, 188);
-        summonElement("type3-3", "", 71, 189);
-        summonElement("type3-1", "", 72, 189);
-
-
-
-
-        summonElement("type3-5", "", 71, 166);
-        summonElement("type3-7", "", 72, 166);
-        summonElement("type3-3", "", 71, 167);
-        summonElement("type3-1", "", 72, 167);
-
-        summonElement("type3-5", "", 90, 166);
-        summonElement("type3-7", "", 91, 166);
-        summonElement("type3-3", "", 90, 167);
-        summonElement("type3-1", "", 91, 167);
-
-        summonElement("type3-5", "", 109, 166);
-        summonElement("type3-7", "", 110, 166);
-        summonElement("type3-3", "", 109, 167);
-        summonElement("type3-1", "", 110, 167);
-
-        summonElement("type3-5", "", 128, 166);
-        summonElement("type3-7", "", 129, 166);
-        summonElement("type3-3", "", 128, 167);
-        summonElement("type3-1", "", 129, 167);
-
-
-
-        summonElement("type3-5", "", 71, 155);
-        summonElement("type3-7", "", 72, 155);
-        summonElement("type3-3", "", 71, 156);
-        summonElement("type3-1", "", 72, 156);
-
-        summonElement("type3-5", "", 90, 155);
-        summonElement("type3-7", "", 91, 155);
-        summonElement("type3-3", "", 90, 156);
-        summonElement("type3-1", "", 91, 156);
-
-        summonElement("type3-5", "", 109, 155);
-        summonElement("type3-7", "", 110, 155);
-        summonElement("type3-3", "", 109, 156);
-        summonElement("type3-1", "", 110, 156);
-
-        summonElement("type3-5", "", 128, 155);
-        summonElement("type3-7", "", 129, 155);
-        summonElement("type3-3", "", 128, 156);
-        summonElement("type3-1", "", 129, 156);
-
-        summonElement("type3-5", "", 147, 155);
-        summonElement("type3-7", "", 148, 155);
-        summonElement("type3-3", "", 147, 156);
-        summonElement("type3-1", "", 148, 156);
-
-
-
-
-
-        summonElement("type3-5", "", 71, 144);
-        summonElement("type3-7", "", 72, 144);
-        summonElement("type3-3", "", 71, 145);
-        summonElement("type3-1", "", 72, 145);
-
-        summonElement("type3-5", "", 90, 144);
-        summonElement("type3-7", "", 91, 144);
-        summonElement("type3-3", "", 90, 145);
-        summonElement("type3-1", "", 91, 145);
-
-        summonElement("type3-5", "", 109, 144);
-        summonElement("type3-7", "", 110, 144);
-        summonElement("type3-3", "", 109, 145);
-        summonElement("type3-1", "", 110, 145);
-
-        summonElement("type3-5", "", 128, 144);
-        summonElement("type3-7", "", 129, 144);
-        summonElement("type3-3", "", 128, 145);
-        summonElement("type3-1", "", 129, 145);
-        
-        summonElement("type3-5", "", 147, 144);
-        summonElement("type3-7", "", 148, 144);
-        summonElement("type3-3", "", 147, 145);
-        summonElement("type3-1", "", 148, 145);
-
-
-
-
-
+        summonElement("floor3-5", "", 112, 180); // Background behind key
         summonElementKey("key1","temple1","1",112,180); // key1, level 1, key 1, x, y
 
         
@@ -1248,14 +1120,7 @@ function loadLevel(level = pData.level) {
 
 
 
-
-
-        for (data.temp.iOfLG = 73; data.temp.iOfLG < 90; data.temp.iOfLG++) {
-            for (data.temp.iOfLG2 = 179; data.temp.iOfLG2 < 188; data.temp.iOfLG2++) {
-                summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
-            }
-        }
-
+        createRoom(72,178);
 
         data.enemys.push("hole,86,180");
         data.enemys.push("hole,86,181");
@@ -1323,13 +1188,7 @@ function loadLevel(level = pData.level) {
 
 // Room 0012 
 
-for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
-    for (data.temp.iOfLG2 = 157; data.temp.iOfLG2 < 166; data.temp.iOfLG2++) {
-        summonElement("floor3-1", "", data.temp.iOfLG, data.temp.iOfLG2);
-    }
-}
-
-
+    createRoom(91,156);
 
     data.enemys.push("hole,92,158");
     data.enemys.push("hole,93,158");
@@ -1397,6 +1256,8 @@ for (data.temp.iOfLG = 92; data.temp.iOfLG < 109; data.temp.iOfLG++) {
 
 
 // Room 0013
+
+createRoom(72,156);
 data.enemys.push("water1,73,165");
 data.enemys.push("water1,74,165");
 data.enemys.push("water1,75,165");
@@ -1412,7 +1273,6 @@ data.enemys.push("water1,86,165");
 data.enemys.push("water1,87,165");
 data.enemys.push("water1,88,165");
 data.enemys.push("water1,89,165");
-
 
 
 data.enemys.push("water1,73,164");
@@ -1499,17 +1359,11 @@ summonElement("water2","",82,157);
 
 
 
-
-
 // Room 0013 end
 
 
 // Room 0014
-for (var x = 92; x <= 108; x++) {
-    for (var y = 146; y <= 154; y++) {
-        summonElement("floor3-1", "", x, y);
-    }
-}
+createRoom(91,145, "1",1,0,1,1);
 
 
 for(var x=92;x<95;x++) {
@@ -1522,7 +1376,7 @@ for(var x=92;x<95;x++) {
         data.enemys.push("hole,95,"+y);
     }
 
-    for(var x=95;x<=108;x++) {
+    for(var x=95;x<=109;x++) {
             summonElement("hole", "", x,146);
             data.enemys.push("hole,"+x+",147");
     }
@@ -1531,11 +1385,13 @@ for(var x=92;x<95;x++) {
     data.enemys.push("hole,106,153");
     data.enemys.push("hole,107,153");
     data.enemys.push("hole,108,153");
+    data.enemys.push("hole,109,153");
 
     data.enemys.push("hole,105,154");
     data.enemys.push("hole,106,154");
     data.enemys.push("hole,107,154");
     data.enemys.push("hole,108,154");
+    data.enemys.push("hole,109,154");
 
 
 
@@ -1545,13 +1401,9 @@ for(var x=92;x<95;x++) {
 // Room 0014 end
 
 // Room 0015
-for (var x = 111; x <= 127; x++) {
-    for (var y = 146; y <= 154; y++) {
-        summonElement("floor3-1", "", x, y);
-    }
-}
+createRoom(110,145,"1", 1,0,1,0);
 
-for(var x=111;x<=127;x++) {
+for(var x=110;x<=128;x++) {
         summonElement("hole", "", x,146);
         summonElement("hole", "", x,154);
 
@@ -1567,18 +1419,13 @@ for(var x=111;x<=127;x++) {
 
 
 // Room 0016
-for (var x = 130; x <= 146; x++) {
-    for (var y = 146; y <= 154; y++) {
-        summonElement("floor3-1", "", x, y);
-    }
-}
+createRoom(129,145,"1", 1,1,0,0);
 
-
-for(var x=130;x<=146;x++) {
+for(var x=129;x<=146;x++) {
         summonElement("hole", "", x,146);
 }
 
-for(var x=130;x<=143;x++) {
+for(var x=129;x<=143;x++) {
         data.enemys.push("hole,"+x+",147");
 }
 
@@ -1594,11 +1441,13 @@ for(var x=144;x<=146;x++) {
 
 
 
+    data.enemys.push("hole,129,153");
     data.enemys.push("hole,130,153");
     data.enemys.push("hole,131,153");
     data.enemys.push("hole,132,153");
     data.enemys.push("hole,133,153");
 
+    data.enemys.push("hole,129,154");
     data.enemys.push("hole,130,154");
     data.enemys.push("hole,131,154");
     data.enemys.push("hole,132,154");
@@ -1607,11 +1456,7 @@ for(var x=144;x<=146;x++) {
 
 
 // Room 0017
-for (var x = 130; x <= 146; x++) {
-    for (var y = 157; y <= 165; y++) {
-        summonElement("floor3-1", "", x, y);
-    }
-}
+createRoom(129,156,"1",0,1,0,1);
 
 data.enemys.push("hole,130,157");
 data.enemys.push("hole,131,157");
@@ -1664,16 +1509,15 @@ data.walls.push("type3-13,140,165");
 
 
 // Room 0018 & Room 0019
-for(var y=168;y<=187;y++) {
-    if(y!=177 && y!=178) {
-        data.walls.push("type3-13,136,"+y);
-        summonElement("type3-13","",137,y);
-        summonElement("type3-13","",138,y);
-        summonElement("type3-13","",139,y);
-        data.walls.push("type3-13,140,"+y);
-    
-    }
-    
+createRoom(129,167, "1", 0,1,0,1);
+createRoom(129,178, "1", 0,1,1,1);
+
+for(var y=165;y<=187;y++) {
+    data.walls.push("type3-13,136,"+y);
+    summonElement("type3-13","",137,y);
+    summonElement("type3-13","",138,y);
+    summonElement("type3-13","",139,y);
+    data.walls.push("type3-13,140,"+y);
 }
 
 
