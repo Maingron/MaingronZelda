@@ -204,9 +204,9 @@ function loadLevel(level = pData.level) {
         }
 
 
-        summonElement("trigger", objects.field, 55, 21, "loadLevel(3)");
+        // summonElement("trigger", objects.field, 55, 21, "loadLevel(3)");
 
-        summonElement("trigger", objects.field, 59, 21, "loadLevel(008)");
+        // summonElement("trigger", objects.field, 59, 21, "loadLevel(008)");
 
 
 
@@ -1594,6 +1594,9 @@ if(pData.runner.developer == 1) {
         summonElement("stairs2-1","",8,14);
         summonElement("stairs2-1","",9,13);
         summonElement("stairs2-1","",9,14);
+
+        summonElement("trigger","",12,11, "loadLevel(004-4)"); // Go back to levelselect
+
 
 
 
